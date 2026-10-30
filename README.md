@@ -17,7 +17,7 @@ Google moved Timeline onto the phone, and the export you get from it is one larg
 | `frequent_places` | place Google marked as frequent | place id, lat/lng, label |
 | `meta` | run | the source file and how many rows of each kind were written |
 
-Plus a `v_days` view with one row per day: visit count, distinct places, minutes at places, whether you were home at all, and kilometers traveled.
+Plus a `v_days` view with one row per day: visit count, distinct places, minutes at places, whether a home visit began that day, and kilometers traveled. Each visit counts toward the day it started, so a night at home that runs past midnight sits entirely on the evening it began.
 
 ## Requirements
 

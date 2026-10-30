@@ -6,7 +6,7 @@ Location matching uses boxes in degrees: 0.01° of latitude is about 1.1 km, and
 
 ## Day by day
 
-One row per day with visits, distinct places, minutes at places, whether you were home, and kilometers traveled:
+One row per day with visits, distinct places, minutes at places, whether a home visit began that day, and kilometers traveled (each visit counts toward the day it started; the mobility-entropy query below shows how to split visits at midnight when you need exact per-day time):
 ```sql
 SELECT local_date, visit_count, distinct_places, visit_minutes, touched_home, travel_km
 FROM v_days
@@ -14,7 +14,7 @@ WHERE local_date BETWEEN :from_date AND :to_date
 ORDER BY local_date;
 ```
 
-Nights away from home (a day with visits but none at the place Google labeled HOME or INFERRED_HOME):
+Nights away from home (a day with visits but no visit starting at the place Google labeled HOME or INFERRED_HOME; since a visit belongs to the day it started, a day you left home and never came back to it reads as a night away):
 ```sql
 SELECT local_date FROM v_days
 WHERE visit_count > 0 AND touched_home = 0
