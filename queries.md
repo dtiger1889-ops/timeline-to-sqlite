@@ -83,6 +83,7 @@ On this day: where you were on today's month and day in earlier years:
 SELECT local_date, start_time, duration_min, lat, lng, semantic_type
 FROM visits
 WHERE substr(local_date, 6) = strftime('%m-%d', 'now', 'localtime')
+  AND substr(local_date, 1, 4) < strftime('%Y', 'now', 'localtime')
 ORDER BY local_date;
 ```
 
