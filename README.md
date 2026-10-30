@@ -47,7 +47,7 @@ The sample's places and coordinates are made up (they sit in open ocean off West
 ## Notes and limits
 
 - **Coordinates arrive as text.** The export writes `"<lat>°, <lng>°"` strings, and raw fixes spell the key `LatLng` while everything else uses `latLng`. The script handles both.
-- **Times keep the offset they were recorded with.** `local_date` is the date on the clock where you were, which is what you want for day-by-day joins. Use the full timestamp when you need exact ordering across time zones.
+- **Times keep the offset they were recorded with.** `local_date` is the date on the clock where you were, which is what you want for day-by-day joins. When you need exact ordering across time zones, compare `julianday(start_time)` rather than the text, which sorts by the local clock.
 - **Trip summaries are not stored.** Segments of type `timelineMemory` are counted in `meta` and skipped.
 - **Coverage is not constant over the years.** Older history usually has far fewer recorded hours per month than recent history, because phones and Google's settings changed. A long-run trend (more places, more travel) can be a recording artifact rather than a change in your life. Check coverage for the window before you trust a trend.
 - **Place matching uses rough boxes, not a geography library.** The queries compare latitude and longitude within a tolerance (0.01° of latitude is about 1.1 km). That is good enough for "was I at this venue that day," and you should tighten it for anything finer.

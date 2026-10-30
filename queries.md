@@ -62,11 +62,11 @@ ORDER BY minutes DESC
 LIMIT 25;
 ```
 
-Where was I at a given moment? Pass a timestamp in the same form the export uses, with its offset:
+Where was I at a given moment? Pass a timestamp in the same form the export uses, with its offset. `julianday` turns each offset timestamp into one instant, so the comparison holds across time zones and finds visits that started the day before:
 ```sql
 SELECT * FROM visits
-WHERE local_date = substr(:moment, 1, 10)
-  AND start_time <= :moment AND end_time >= :moment;
+WHERE julianday(start_time) <= julianday(:moment)
+  AND julianday(end_time)   >= julianday(:moment);
 ```
 
 ## Trips and anniversaries
