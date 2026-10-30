@@ -1,0 +1,76 @@
+{
+  "semanticSegments": [
+    {
+      "startTime": "2025-01-15T00:00:00.000+00:00",
+      "endTime": "2025-01-15T08:30:00.000+00:00",
+      "visit": {
+        "hierarchyLevel": 0,
+        "probability": 0.95,
+        "topCandidate": {
+          "placeId": "sample-place-home",
+          "semanticType": "HOME",
+          "probability": 0.9,
+          "placeLocation": { "latLng": "0.5000°, 0.5000°" }
+        }
+      }
+    },
+    {
+      "startTime": "2025-01-15T08:30:00.000+00:00",
+      "endTime": "2025-01-15T08:50:00.000+00:00",
+      "activity": {
+        "start": { "latLng": "0.5000°, 0.5000°" },
+        "end": { "latLng": "0.5100°, 0.5050°" },
+        "distanceMeters": 1250.0,
+        "topCandidate": { "type": "WALKING", "probability": 0.88 }
+      }
+    },
+    {
+      "startTime": "2025-01-15T08:30:00.000+00:00",
+      "endTime": "2025-01-15T08:50:00.000+00:00",
+      "timelinePath": [
+        { "point": "0.5000°, 0.5000°", "time": "2025-01-15T08:30:00.000+00:00" },
+        { "point": "0.5050°, 0.5025°", "time": "2025-01-15T08:40:00.000+00:00" },
+        { "point": "0.5100°, 0.5050°", "time": "2025-01-15T08:50:00.000+00:00" }
+      ]
+    },
+    {
+      "startTime": "2025-01-15T08:50:00.000+00:00",
+      "endTime": "2025-01-15T10:05:00.000+00:00",
+      "visit": {
+        "hierarchyLevel": 0,
+        "probability": 0.8,
+        "topCandidate": {
+          "placeId": "sample-place-cafe",
+          "semanticType": "UNKNOWN",
+          "probability": 0.7,
+          "placeLocation": { "latLng": "0.5100°, 0.5050°" }
+        }
+      }
+    },
+    {
+      "startTime": "2025-01-15T00:00:00.000+00:00",
+      "endTime": "2025-01-16T00:00:00.000+00:00",
+      "timelineMemory": { "trip": { "distanceFromOriginKms": 1, "destinations": [ { "identifier": { "placeId": "sample-place-cafe" } } ] } }
+    }
+  ],
+  "rawSignals": [
+    {
+      "position": {
+        "LatLng": "0.5001°, 0.5001°",
+        "accuracyMeters": 12,
+        "altitudeMeters": 20.0,
+        "source": "WIFI",
+        "timestamp": "2025-01-15T07:00:00.000+00:00",
+        "speedMetersPerSecond": 0.0
+      }
+    },
+    {
+      "wifiScan": { "deliveryTime": "2025-01-15T07:05:00.000+00:00", "devicesRecords": [] }
+    }
+  ],
+  "userLocationProfile": {
+    "frequentPlaces": [
+      { "placeId": "sample-place-home", "placeLocation": "0.5000°, 0.5000°", "label": "HOME" }
+    ]
+  }
+}

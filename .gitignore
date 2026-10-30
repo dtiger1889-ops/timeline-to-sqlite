@@ -1,0 +1,6 @@
+# Your location data never belongs in a repository.
+*.db
+*.db-journal
+Timeline.json
+__pycache__/
+*.pyc
