@@ -14,7 +14,7 @@ WHERE local_date BETWEEN :from_date AND :to_date
 ORDER BY local_date;
 ```
 
-Nights away from home (a day with visits but none at the place Google labeled HOME):
+Nights away from home (a day with visits but none at the place Google labeled HOME or INFERRED_HOME):
 ```sql
 SELECT local_date FROM v_days
 WHERE visit_count > 0 AND touched_home = 0

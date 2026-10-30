@@ -82,7 +82,7 @@ SELECT local_date,
        COUNT(*)                                   AS visit_count,
        COUNT(DISTINCT place_id)                   AS distinct_places,
        SUM(duration_min)                          AS visit_minutes,
-       MAX(CASE WHEN semantic_type='HOME' THEN 1 ELSE 0 END) AS touched_home,
+       MAX(CASE WHEN semantic_type IN ('HOME','INFERRED_HOME') THEN 1 ELSE 0 END) AS touched_home,
        (SELECT ROUND(SUM(distance_m)/1000.0, 1) FROM activities a
          WHERE a.local_date = v.local_date)       AS travel_km
 FROM visits v
