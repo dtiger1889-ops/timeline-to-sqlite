@@ -6,6 +6,12 @@ Turns a Google Maps Timeline export into one SQLite database you can query with 
 
 Google moved Timeline onto the phone, and the export you get from it is one large JSON file of visits, trips, route points and raw location fixes. I wanted that history in a form I could ask questions of and join against my other records by date, so this script reads the export and writes it into tables with the coordinates parsed and a local date on every row.
 
+## Start here
+
+This is a Python script, not an agent skill. Download or clone the repo and run the bundled sample command under Usage before using a real export. It creates `sample.db`; the examples in [queries.md](queries.md) show how to inspect the tables and daily summary. No AI account is needed.
+
+If an agent helps, ask: "Read this README and queries.md. Run the invented sample into a new scratch database and explain the daily summary. Do not open my real Timeline export or overwrite an existing database." The agent needs local Python and file access. Real exports contain detailed location history; keeping the script local does not make uploading those exports to an external agent private.
+
 ## What you get
 
 | Table | One row per | Key columns |
@@ -55,6 +61,10 @@ The sample's places and coordinates are made up (they sit in open ocean off West
 ## Privacy
 
 The database is a detailed record of where you have been. Keep it and your exports out of any repository or shared folder; this repo's `.gitignore` already ignores `*.db` and `Timeline.json`.
+
+## Help
+
+For setup questions or errors, [open an issue](https://github.com/dtiger1889-ops/timeline-to-sqlite/issues) with the relevant versions and a redacted error description.
 
 ## License
 
